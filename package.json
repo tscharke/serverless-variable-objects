@@ -1,0 +1,21 @@
+{
+  "name": "serverless-variable-objects",
+  "version": "0.0.1",
+  "description": "Convert variable objects to strings so they can be used as environment variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "serverless",
+    "plugin",
+    "lambda",
+    "aws"
+  ],
+  "author": "David Tanner",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "3.4.1",
+    "lodash": "4.14.0"
+  }
+}
