@@ -1,0 +1,1 @@
+# serverless-variable-objects
