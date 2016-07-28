@@ -1,14 +1,13 @@
 'use strict';
 
-let Promise = require('bluebird');
 
 module.exports = function convertVariables(S) {
 
   let origGetEnvVars = S.classes.Runtime.prototype.getEnvVars;
 
   S.classes.Runtime.prototype.getEnvVars = (func, stage, region) =>
-    Promise.resolve(origGetEnvVars(func, stage, region))
-    .then(stringifyVars);
+    origGetEnvVars(func, stage, region)
+      .then(stringifyVars);
 
   function stringifyVars(variables) {
     let keys = Object.getOwnPropertyNames(variables);
