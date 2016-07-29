@@ -4,18 +4,18 @@ var args = process.argv || [];
 var Mocha = require('mocha');
 var glob = require('glob');
 var istanbul = require('istanbul');
-var fs = require('fs');
-
+let rmrf = require('rimraf');
 
 
 /**
  * Specify files needed for testing
  */
-var files = glob.sync('../test-suite/**/*.js');
+var files = glob.sync('./test/test-suite/**/*.js');
 
-var testOuputFolder = '../test-results/';
-process.env.TESTING=true;
+var testOuputFolder = './test/test-results/';
+process.env.TESTING = true;
 
+rmrf.sync(testOuputFolder);
 
 /**
  * Set up an environment variables we need for testing
@@ -26,7 +26,7 @@ process.env.TESTING=true;
  * @type {{bail: boolean}}
  */
 var mochaConfig = {
-  bail:false
+  bail: false
 };
 
 /**
@@ -51,19 +51,19 @@ if (args.indexOf('coverage') >= 0) {
   var htmlReport = istanbul.Report.create('html', {dir: `${testOuputFolder}coverage/html/`});
 
 
-  istanbul.matcherFor({includes: ['lib/**/*.js']}, (error, matcher) => {
+  istanbul.matcherFor({includes: ['index.js']}, (error, matcher) => {
     istanbul.hook.hookRequire(matcher, instrumenter.instrumentSync.bind(instrumenter));
 
-    startMocha(function(results) {
+    startMocha(function (results) {
 
       collector.add(__coverage__);
 
       htmlReport.on('done', function() {
-        process.exit(results);
+        process.exit(results)
       });
 
       coberturaReport.on('done', function() {
-        htmlReport.writeReport(collector);
+        htmlReport.writeReport(collector)
       });
 
       coberturaReport.writeReport(collector);
@@ -79,7 +79,7 @@ function startMocha(fn) {
   fn = fn || process.exit;
   var mocha = new Mocha(mochaConfig);
 
-  files.forEach(mocha.addFile.bind(mocha));
+  files.forEach(file => mocha.addFile(file));
 
   mocha.run(fn);
 }

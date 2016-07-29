@@ -61,6 +61,8 @@ describe('Serverless Variable Objects', function () {
     name
   };
 
+  let origDir = process.cwd();
+
   before(function (done) {
     this.timeout(0);
 
@@ -108,6 +110,7 @@ describe('Serverless Variable Objects', function () {
   });
 
   after(function (done) {
+    process.chdir(origDir);
     done();
   });
 
