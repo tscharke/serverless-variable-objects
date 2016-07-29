@@ -1,0 +1,24 @@
+{
+  "name": "serverless-variable-objects",
+  "version": "0.0.1",
+  "description": "Convert variable objects to strings so they can be used as environment variables",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "serverless",
+    "plugin",
+    "lambda",
+    "aws"
+  ],
+  "author": "David Tanner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VivintSolar/serverless-variable-objects"
+  }
+}
