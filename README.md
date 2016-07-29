@@ -1,14 +1,12 @@
 Serverless Variable Objects
 =============================
 
-Serverless allows adding variables to the runtime by placing them in process.env.  
-
-This is great as long as the variables are only strings or integers.  
+Serverless allows adding variables to the runtime by placing them in process.env.  This is great as long as the variables are only strings or integers.  
 
 As per https://nodejs.org/api/process.html#process_process_env: 
 >Assigning a property on `process.env` will implicitly convert the value to a string.
 
-Thus turning objects into `[Object object]`, and arrays into `1,2,3`
+Thus turning objects into `[Object object]`, and arrays into `1,2,3`.
 
 Serverless Variable Objects uses JSON.stringify() to convert objects and arrays into strings before they are added to process.env.
 
@@ -16,7 +14,7 @@ Serverless Variable Objects uses JSON.stringify() to convert objects and arrays 
 
 ### Setup
 
-* Install the plugin and webpack in the root of your Serverless Project:
+* Install the plugin in the root of your Serverless Project:
 ```
 npm install serverless-variable-objects --save-dev
 ```
