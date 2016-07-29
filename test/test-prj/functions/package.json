@@ -1,0 +1,15 @@
+{
+  "name": "nodejscomponent",
+  "version": "1.0.0",
+  "preferGlobal": true,
+  "description": "unittest nodejs component",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/serverless/serverless.git"
+  },
+  "keywords": [],
+  "dependencies": {
+  }
+}

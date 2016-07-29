@@ -1,0 +1,8 @@
+{
+  "apiRequestTemplate": {
+    "application/json": {
+      "headerParams": "$input.params().header",
+      "pathParams": "$input.path('$.id1')"
+    }
+  }
+}
